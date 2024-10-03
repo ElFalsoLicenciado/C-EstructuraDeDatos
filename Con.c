@@ -96,7 +96,7 @@ void main()
             pop();
             show();
             printf("\n");
-            break;1
+            break;
             
         case 3:
             show();
