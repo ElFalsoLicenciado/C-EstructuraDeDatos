@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define M 5
+#define M 4
 
 /* char *fgets_clean(char *buffer, int len)
 {
@@ -17,15 +17,28 @@
 }
 */
 
-int Arre[M]; 
-int ind = 0;
-int end = 0;
+int Arre[M] = {0}; 
+int ind, end = 0;
+
+void meter(int input);
+void sacar();
+void recorrer();
+void limpiar();
+void mostrar();
+void menu();
+void special();
+
 
 int main()
 {
     /* Tipos de colas
     FIFO y LIFO 
     FIFO: Recorrer elementos*/
+    menu();
+}
+
+void menu()
+{
     int flag = 1;
     while(flag)
     {
@@ -45,7 +58,7 @@ int main()
             mostrar();
             break;
         case 3:
-            vaciar();
+            limpiar();
             mostrar();
             break;
         case 4:
@@ -59,59 +72,93 @@ int main()
         }
 
     }
-    return 1;
 }
 
 void meter(int input)
 {
-    if(ind<M)
+    if(ind == 0 && end == M)
     {
-        Arre[ind]=input;
-        ind++;
+        printf("\nCola llena.");
     }
     else
     {
-        printf("Cola llena.");
-    }
+        if(end == M)
+        {
+            recorrer();
+            Arre[end] = input;
+            // printf("\n ind %d end %d \n",ind,end);
+            special();
+        }
+        else
+            {Arre[end] = input;}
+        end++;
+    }   
 }
 
 void sacar()
-{
-    int aux;
-    if(ind > 0)
+{   
+    int desertor;
+    if(ind!=end)
     {
-        aux = Arre[ind];
-        recorrer();
+        desertor = Arre[ind];
+        Arre[ind] = 0;
+        ind ++;
+
+        if(ind == end)
+        {
+            ind = 0; end = 0;
+        }
+        printf("\nSacaste a %d",desertor);
+    }else
+    {
+        printf("\nCola vacia.");
     }
 }
 
 void recorrer()
 {
     int aux = 0;
-
-    while (aux<ind)
+    printf("\n***Reordering***\n");
+    while (ind < end)
     {
-        Arre[aux] = Arre[aux+1];
-        aux++; 
+        Arre[aux] = Arre[ind];
+        Arre[ind] = 0;
+        //printf("\n aux %d ind %d \n",aux,ind);
+        aux ++;
+        ind ++;
+        //special();
     }
-    ind--;
+    end = aux; //Ojo, en vez de ser ind es aux por que si ya sacaste todos ind estaria casi al tope y pues vale verdura. Pero aux se queda en la ultima posicion.
+    ind  = 0;
 }
 
-void vaciar()
+void limpiar()
 {
     for (int i = 0; i < M; i++)
-        Arre[i] = NULL;
-    ind = 0;
+        Arre[i] = 0;
+    ind = 0; end = 0; 
 }
 
 void mostrar()
-{   
-    if(ind>0)
+{
+    if(ind==end)
+        printf("\nLa cola esta vacia.");
+    else
     {
         printf("\nCola: ");
-        for (int i = 0; i < ind; i++)
+        for (int i = ind; i < end; i++)
             printf("%d ",Arre[i]);
-        printf("\n");
-    }else
-        printf("Cola vacia.\n");
+    }
+    printf("\nind: %d end: %d",ind,end);
+    printf("\n");
 }
+
+/*void special()
+{
+    printf("\nSeguimiento: ");
+    for (int i = 0; i < M; i++)
+    {
+        printf("%d ",Arre[i]);
+    }
+    printf("\n");
+}*/
