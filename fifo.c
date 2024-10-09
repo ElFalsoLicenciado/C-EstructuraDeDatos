@@ -19,7 +19,7 @@
 
 int Arre[M]; 
 int ind = 0;
-
+int end = 0;
 
 int main()
 {
