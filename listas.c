@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define M 5
-
 /* char *fgets_clean(char *buffer, int len)
 {
     fgets(buffer,len,stdin);
@@ -23,6 +21,11 @@ struct nodo
     struct nodo *sig;
 };
 
+insertar_ord(int x);
+insertar(int x);
+eliminar(int x);
+
+
 struct nodo *raiz = NULL;
 
 /* Listas:
@@ -35,6 +38,22 @@ int main()
 {
 
     return 1;
+}
+
+
+insertar(int x)
+{
+    struct nodo *aux;
+    aux = (struct nodo*)malloc(sizeof(struct nodo));
+
+    if(raiz == NULL)
+    {
+        raiz = aux;
+    }
+    else
+    {
+        
+    }
 }
 
 insertar_ord(int x)
