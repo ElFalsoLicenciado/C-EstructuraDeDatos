@@ -17,7 +17,7 @@
 }
 */
 
-int Arre[M] = {0}; 
+int Arre[M] = {-1}; 
 int ind, end = 0;
 
 void meter(int input);
@@ -26,7 +26,7 @@ void recorrer();
 void limpiar();
 void mostrar();
 void menu();
-void special();
+// void special();
 
 
 int main()
@@ -82,16 +82,23 @@ void meter(int input)
     }
     else
     {
-        if(end == M)
+        if(end > 0 && ind == 0)
         {
             recorrer();
-            Arre[end] = input;
-            // printf("\n ind %d end %d \n",ind,end);
-            special();
+            Arre[0] = input;
+            end++; 
+
         }
-        else
-            {Arre[end] = input;}
-        end++;
+        if(end > 0 && ind > 0)
+        {
+            Arre[ind-1] = input;
+            ind--;
+        }
+        if( end == 0 && ind == 0)
+        {
+            Arre[0] = input;
+            end++;
+        }     
     }   
 }
 
@@ -101,8 +108,8 @@ void sacar()
     if(ind!=end)
     {
         desertor = Arre[ind];
-        Arre[ind] = 0;
-        ind ++;
+        Arre[ind] = -1;
+        ind++;
 
         if(ind == end)
         {
@@ -117,19 +124,16 @@ void sacar()
 
 void recorrer()
 {
-    int aux = 0;
+    int aux = M-1;
     printf("\n***Reordering***\n");
-    while (ind < end)
+    while (aux>0)
     {
-        Arre[aux] = Arre[ind];
-        Arre[ind] = 0;
-        //printf("\n aux %d ind %d \n",aux,ind);
-        aux ++;
-        ind ++;
-        //special();
-    }
-    end = aux; //Ojo, en vez de ser ind es aux por que si ya sacaste todos ind estaria casi al tope y pues vale verdura. Pero aux se queda en la ultima posicion.
-    ind  = 0;
+        Arre[aux] = Arre[aux-1];
+        // printf("\n aux %d ind %d \n",aux,ind);
+        aux--;
+        // special();
+    } 
+
 }
 
 void limpiar()
@@ -149,16 +153,16 @@ void mostrar()
         for (int i = ind; i < end; i++)
             printf("%d ",Arre[i]);
     }
-    printf("\nind: %d end: %d",ind,end);
+    // printf("\nind: %d end: %d",ind,end);
     printf("\n");
 }
 
-/*void special()
-{
-    printf("\nSeguimiento: ");
-    for (int i = 0; i < M; i++)
-    {
-        printf("%d ",Arre[i]);
-    }
-    printf("\n");
-}*/
+// void special()
+// {
+//     printf("\nSeguimiento: ");
+//     for (int i = 0; i < M; i++)
+//     {
+//         printf("%d ",Arre[i]);
+//     }
+//     printf("\n");
+// }
