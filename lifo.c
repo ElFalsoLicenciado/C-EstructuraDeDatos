@@ -100,9 +100,9 @@ void sacar()
     int desertor;
     if(ind!=end)
     {
-        desertor = Arre[ind];
-        Arre[ind] = -1;
-        ind++;
+        desertor = Arre[end-1];
+        Arre[end-1] = -1;
+        end--;
 
         if(ind == end)
         {
