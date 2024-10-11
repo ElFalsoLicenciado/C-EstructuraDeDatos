@@ -21,7 +21,8 @@ int Arre[M] = {0};
 int ind, end = 0;
 
 void meter(int input);
-void sacar();
+void sacarLIFO();
+void sacarFIFO();
 void recorrer();
 void limpiar();
 void mostrar();
@@ -42,7 +43,7 @@ void menu()
     int flag = 1;
     while(flag)
     {
-        printf("\nColas\n1. Meter\n2. Sacar\n3. Vaciar\n4. Mostrar\n0. Salir\nInput: ");
+        printf("\nColas\n1. Meter\n2. Sacar FIFO \n3. Sacar LIFO\n4. Vaciar\n5. Mostrar\n0. Salir\nInput: ");
         int i; scanf("%d",&i);
         printf("\n");
         switch (i)
@@ -52,16 +53,18 @@ void menu()
             meter(i);
             mostrar();
             break;
-
         case 2:
-            sacar();
+            sacarFIFO();
             mostrar();
             break;
         case 3:
-            limpiar();
+            sacarLIFO();
             mostrar();
             break;
         case 4:
+            limpiar();
+            break;
+            case 5:
             mostrar();
             break;
         case 0:
@@ -95,14 +98,34 @@ void meter(int input)
     }   
 }
 
-void sacar()
+void sacarFIFO()
 {   
     int desertor;
     if(ind!=end)
     {
         desertor = Arre[ind];
-        Arre[ind] = 0;
+        Arre[ind] = -1;
         ind ++;
+
+        if(ind == end)
+        {
+            ind = 0; end = 0;
+        }
+        printf("\nSacaste a %d",desertor);
+    }else
+    {
+        printf("\nCola vacia.");
+    }
+}
+
+void sacarLIFO()
+{   
+    int desertor;
+    if(ind!=end)
+    {
+        desertor = Arre[end-1];
+        Arre[end-1] = -1;
+        end--;
 
         if(ind == end)
         {
@@ -128,7 +151,7 @@ void recorrer()
         ind ++;
         //special();
     }
-    end = aux; //Ojo, en vez de ser ind es aux por que si ya sacaste todos ind estaria casi al tope y pues vale verdura. Pero aux se queda en la ultima posicion.
+    end = aux; 
     ind  = 0;
 }
 
