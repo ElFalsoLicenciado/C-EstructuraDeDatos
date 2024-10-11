@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define M 4
+#define M 7
 
 /* char *fgets_clean(char *buffer, int len)
 {
@@ -26,7 +26,7 @@ void recorrer();
 void limpiar();
 void mostrar();
 void menu();
-void special();
+// void special();
 
 
 int main()
@@ -87,7 +87,7 @@ void meter(int input)
             recorrer();
             Arre[end] = input;
             // printf("\n ind %d end %d \n",ind,end);
-            special();
+            // special();
         }
         else
             {Arre[end] = input;}
