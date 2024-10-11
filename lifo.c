@@ -82,24 +82,17 @@ void meter(int input)
     }
     else
     {
-        if(end > 0 && ind == 0)
+        if(end == M)
         {
             recorrer();
-            Arre[0] = input;
-            end++; 
-
+            Arre[end] = input;
+            // printf("\n ind %d end %d \n",ind,end);
+            // special();
         }
-        if(end > 0 && ind > 0)
-        {
-            Arre[ind-1] = input;
-            ind--;
-        }
-        if( end == 0 && ind == 0)
-        {
-            Arre[0] = input;
-            end++;
-        }     
-    }   
+        else
+            {Arre[end] = input;}
+        end++;
+    }     
 }
 
 void sacar()
@@ -124,16 +117,19 @@ void sacar()
 
 void recorrer()
 {
-    int aux = M-1;
+    int aux = 0;
     printf("\n***Reordering***\n");
-    while (aux>0)
+    while (ind < end)
     {
-        Arre[aux] = Arre[aux-1];
-        // printf("\n aux %d ind %d \n",aux,ind);
-        aux--;
-        // special();
-    } 
-
+        Arre[aux] = Arre[ind];
+        Arre[ind] = 0;
+        //printf("\n aux %d ind %d \n",aux,ind);
+        aux ++;
+        ind ++;
+        //special();
+    }
+    end = aux; 
+    ind  = 0;
 }
 
 void limpiar()
