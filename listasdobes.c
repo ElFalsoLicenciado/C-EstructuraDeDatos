@@ -39,6 +39,9 @@ int main() {
         case 3:
             vaciar();
             break;
+        case 4:
+            mostrar();
+            break;
         case 0:
             break;
         default:
@@ -51,20 +54,19 @@ int main() {
 
 void meter(int x)
 {
-    struct nodo *aux,*aux2;
+    struct nodo *aux;
     aux = (struct nodo*)malloc(sizeof(struct nodo));
     aux->valor = x; aux->sig = NULL; aux->pre = NULL;
-    aux2 = raiz;
 
 
-    if(raiz==NULL)
-    {
-        raiz == aux;
-    }
+    if(raiz==NULL)  
+        {raiz = aux;}
+
     else //Enlazar el nodo nuevo y luego enlazar los demas.
     {
+            struct nodo *aux2 = raiz;
         while (aux2->sig->valor < x && aux2->sig!= NULL)
-            aux2 = aux2->sig;
+            {aux2 = aux2->sig;}
 
             aux->pre = aux2;
             aux->sig = aux2->sig;
@@ -80,33 +82,40 @@ void meter(int x)
 
 void eliminar(int x)
 {
-    struct nodo *aux;
-    aux = raiz;
+    struct nodo *aux = raiz;
 
-    while (aux->valor != x && aux->sig != NULL)
+    while (aux != NULL && aux->valor != x) {
         aux = aux->sig;
-    
-    if(aux == raiz)
-    {
-        aux->pre = NULL;
+    }
+
+    if(aux == NULL) {
+        printf("\nNo encontrado.\n");
+        return;
+    }
+
+    if(aux == raiz) {
         raiz = aux->sig;
-        free(aux);
-    }
-
-    if(aux->sig == NULL) printf("\nNo encontrado.\n");
-    else
-    {
-        if(aux->sig != NULL)
+        if (raiz != NULL) {
+            raiz->pre = NULL;
+        }
+    } else {
+        if(aux->sig != NULL) {
             aux->sig->pre = aux->pre;
-
+        }
         aux->pre->sig = aux->sig;
-        free(aux);
     }
+
+    free(aux);
 }
 
 void vaciar()
 {
-    raiz = NULL;
+    struct nodo *aux;
+    while (raiz != NULL) {
+        aux = raiz;
+        raiz = raiz->sig;
+        free(aux);
+    }
 }
 
 void mostrar()
