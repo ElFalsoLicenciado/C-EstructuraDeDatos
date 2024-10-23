@@ -64,7 +64,7 @@ void meter(int x)
 
     else //Enlazar el nodo nuevo y luego enlazar los demas.
     {
-            struct nodo *aux2 = raiz;
+        struct nodo *aux2 = raiz;
         while (aux2->sig->valor < x && aux2->sig!= NULL)
             {aux2 = aux2->sig;}
 

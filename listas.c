@@ -21,10 +21,12 @@ struct nodo
     struct nodo *sig;
 };
 
-insertar_ord(int x);
-insertar(int x);
-eliminar(int x);
-
+int main();
+void insertar_ord(int x);
+void insertar(int x);
+void eliminar(int x);
+void vaciar();
+void mostrar();
 
 struct nodo *raiz = NULL;
 
@@ -36,12 +38,46 @@ struct nodo *raiz = NULL;
 
 int main()
 {
-
+    int c,i; 
+    while(c != 0)
+    {
+        printf("\nListas dobles\n1. Meter con orden\n2. Meter sin orden\n3. Sacar\n4. Vaciar\n5. Mostrar\n0. Salir\n>>> ");
+        scanf("%d",&c);
+        switch (c)
+        {
+        case 1:
+            printf("\nDame un numero: ");
+            scanf("%d",&i);
+            insertar_ord(i);
+            mostrar();
+            break;
+        case 2:
+            printf("\nDame un numero: ");
+            scanf("%d",&i);
+            insertar(i);
+            break;
+        case 3:
+            printf("\nDame un numero: ");
+            scanf("%d",&i);
+            eliminar(i);
+            break;
+        case 4:
+            vaciar();
+            break;
+        case 5:
+            mostrar();
+        case 0:
+            break;
+        default:
+            printf("\nQue pedo.\n");
+            break;
+        }
+    }
     return 1;
 }
 
 
-insertar(int x)
+void insertar(int x)
 {
     struct nodo *aux;
     aux = (struct nodo*)malloc(sizeof(struct nodo));
@@ -56,7 +92,7 @@ insertar(int x)
     }
 }
 
-insertar_ord(int x)
+void insertar_ord(int x)
 {
     struct nodo *aux,*aux2;
 
@@ -88,7 +124,7 @@ insertar_ord(int x)
     }
 }
 
-eliminar(int x)
+void eliminar(int x)
 {
     struct nodo *aux; aux = raiz;
     
@@ -109,4 +145,24 @@ eliminar(int x)
             free(aux);
         }
     }
+}
+void vaciar()
+{
+    struct nodo *aux;
+    while (raiz != NULL) {
+        aux = raiz;
+        raiz = raiz->sig;
+        free(aux);
+    }
+}
+
+void mostrar()
+{
+    struct nodo *aux = raiz;
+    printf("\nList: ");
+    while(aux != NULL){
+        printf("%d ", aux->valor); 
+        aux = aux->sig;
+    }
+    printf("\n");
 }
