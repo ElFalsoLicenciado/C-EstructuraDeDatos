@@ -6,6 +6,7 @@ int ejer_2(int x);
 int ejer_3(int num, int pow, int res);
 int ejer_3o(int num, int pow);
 int ejer_4(int num, int ite);
+int ejer_4aux(int a, int b);
 
 int main()
 {
@@ -13,7 +14,7 @@ int main()
     ejer_2(5342); printf("\n");
     ejer_3(4,3,1); printf("\n");
     printf("%d\n",ejer_3o(4,3)); 
-    printf("%d\n",ejer_4(4,3)); 
+    printf("%d\n",ejer_4(5,3)); 
     
 }
 
@@ -59,6 +60,15 @@ int ejer_3o(int num, int pow)
 
 int ejer_4(int num, int ite)
 {
-    if(ite > 1)
-        return num + ejer_4(num,ite-1);
+    if(ite == 1) return num;
+
+    if(ite>1)
+    return ejer_4aux(num,ejer_4(num,ite-1));
+}
+
+int ejer_4aux(int a, int b)
+{
+    if(b == 0) return 0;
+
+    return a + ejer_4aux(a, b-1);
 }
