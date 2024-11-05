@@ -110,8 +110,6 @@ void main()
 
             case 2:
                 printf("\nDame un valor: ");
-                scanf("%d",&aux);
-                borrar(aux);
             break;
 
             case 0:
