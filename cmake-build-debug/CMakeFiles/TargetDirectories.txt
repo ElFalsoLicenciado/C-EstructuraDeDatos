@@ -1,0 +1,3 @@
+/home/fluffy/Progra/Estructura de Datos/C/cmake-build-debug/CMakeFiles/C.dir
+/home/fluffy/Progra/Estructura de Datos/C/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/fluffy/Progra/Estructura de Datos/C/cmake-build-debug/CMakeFiles/rebuild_cache.dir

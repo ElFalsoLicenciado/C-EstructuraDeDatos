@@ -1,0 +1,4 @@
+/home/fluffy/Progra/clion-2024.2.3/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/fluffy/Progra/clion-2024.2.3/bin/ninja/linux/x64/ninja -G Ninja -S "/home/fluffy/Progra/Estructura de Datos/C" -B "/home/fluffy/Progra/Estructura de Datos/C/cmake-build-debug"
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/fluffy/Progra/Estructura de Datos/C/cmake-build-debug

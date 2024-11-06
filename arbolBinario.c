@@ -43,11 +43,6 @@ void meter(int val)
     }
 }
 
-void borrar(int val)
-{
-
-}
-
 void imPr(struct lemonTree *extra)
 {
     if (extra != NULL)
