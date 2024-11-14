@@ -55,6 +55,12 @@ build CMakeFiles/C.dir/arbolBinario.c.o: C_COMPILER__C_unscanned_Debug /home/flu
   OBJECT_DIR = CMakeFiles/C.dir
   OBJECT_FILE_DIR = CMakeFiles/C.dir
 
+build CMakeFiles/C.dir/ArbolBinarioBalanceado.c.o: C_COMPILER__C_unscanned_Debug /home/fluffy/Progra/Estructura$ de$ Datos/C/ArbolBinarioBalanceado.c || cmake_object_order_depends_target_C
+  DEP_FILE = CMakeFiles/C.dir/ArbolBinarioBalanceado.c.o.d
+  FLAGS = -g -std=gnu2x -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/C.dir
+  OBJECT_FILE_DIR = CMakeFiles/C.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target C
@@ -63,7 +69,7 @@ build CMakeFiles/C.dir/arbolBinario.c.o: C_COMPILER__C_unscanned_Debug /home/flu
 #############################################
 # Link the executable C
 
-build C: C_EXECUTABLE_LINKER__C_Debug CMakeFiles/C.dir/arbolBinario.c.o
+build C: C_EXECUTABLE_LINKER__C_Debug CMakeFiles/C.dir/arbolBinario.c.o CMakeFiles/C.dir/ArbolBinarioBalanceado.c.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/C.dir
   POST_BUILD = :
