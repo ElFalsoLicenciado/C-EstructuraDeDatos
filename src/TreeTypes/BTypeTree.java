@@ -1,12 +1,11 @@
 package TreeTypes;
 
-public class BTree {
-
+public class BTypeTree {
     NodeB root;
     int order;
     boolean initialized;
 
-    public BTree() {
+    public BTypeTree() {
         root = null;
         order = 0;
         initialized = false;

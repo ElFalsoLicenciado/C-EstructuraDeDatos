@@ -2,11 +2,11 @@ package TreeTypes;
 
 import Utils.DialogHelper;
 
-public class BalancedBinaryTree {
+public class BalBinTree {
 
     Node2 root;
 
-    public BalancedBinaryTree() {
+    public BalBinTree() {
         root = null;
     }
 
@@ -64,7 +64,7 @@ class Node2 {
     public Node2(int val) {
         this.val = val;
         left = null;
-        right = null;
+        right = null;//
         height = 1;
     }
 

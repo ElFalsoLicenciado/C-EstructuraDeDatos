@@ -2,10 +2,10 @@ package TreeTypes;
 
 import Utils.DialogHelper;
 
-public class BinaryTree {
+public class BinTree {
     Node1 root;
 
-    public BinaryTree() {
+    public BinTree() {
         root = null;
     }
 
@@ -68,3 +68,4 @@ class Node1 {
     }
 
 }
+

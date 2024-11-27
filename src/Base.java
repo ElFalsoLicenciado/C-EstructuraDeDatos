@@ -8,10 +8,10 @@ public class Base {
     static Random rand = new Random();
 
     public static void main(String[] args) {
-        BinaryTree arbolBinario = new BinaryTree();
-        BalancedBinaryTree arbolBinarioBalanceado = new BalancedBinaryTree();
-        BTree arbolB = new BTree();
-        NTree arbolN = new NTree();
+        BinTree arbolBinario = new BinTree();
+        BalBinTree arbolBinarioBalanceado = new BalBinTree();
+        BTypeTree arbolB = new BTypeTree();
+        NryTree arbolN = new NryTree();
         boolean exit = false;
 
         while (!exit) {
@@ -32,7 +32,7 @@ public class Base {
         }
     }
 
-    public static BinaryTree menu1(BinaryTree arbolBinario) {
+    public static BinTree menu1(BinTree arbolBinario) {
         boolean aux = false;
         while (!aux) {
             switch (DialogHelper.optionD("Árbol binario \n¿Qué quieres hacer?", new String[]{"Insertar", "Imprimir", "Salir"})) {
@@ -45,7 +45,7 @@ public class Base {
         return arbolBinario;
     }
 
-    public static BalancedBinaryTree menu2(BalancedBinaryTree arbolBinarioBalanceado) {
+    public static BalBinTree menu2(BalBinTree arbolBinarioBalanceado) {
         boolean aux = false;
         while (!aux) {
             switch (DialogHelper.optionD("Árbol binario balanceado \n¿Qué quieres hacer?", new String[]{"Insertar", "Imprimir", "Salir"})) {
@@ -59,7 +59,7 @@ public class Base {
         return arbolBinarioBalanceado;
     }
 
-    public static BTree menu3(BTree arbolB) {
+    public static BTypeTree menu3(BTypeTree arbolB) {
         boolean aux = false;
         while (!aux) {
             switch (DialogHelper.optionD("Árbol tipo B \n¿Qué quieres hacer?", new String[]{"Insertar", "Imprimir", "Salir"})) {
@@ -74,7 +74,7 @@ public class Base {
         return arbolB;
     }
 
-    public static NTree menu4(NTree arbolN) {
+    public static NryTree menu4(NryTree arbolN) {
         boolean aux = false;
         while (!aux) {
             switch (DialogHelper.optionD("Árbol tipo N \n¿Qué quieres hacer?", new String[]{"Insertar", "Imprimir", "Salir"})) {
@@ -92,6 +92,3 @@ public class Base {
 
 
 }
-
-
-
