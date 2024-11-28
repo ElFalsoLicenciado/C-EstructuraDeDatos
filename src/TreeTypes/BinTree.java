@@ -28,16 +28,28 @@ public class BinTree {
 
 
     public String print(Node1 node) {
+        return printHelper(node,0);
+    }
+
+    private String printHelper(Node1 node, int space)
+    {
         StringBuilder treeString = new StringBuilder();
-        if (node != null) {
-            treeString.append(node.checkValue()).append(" ");
-            treeString.append(print(node.checkLeft()));
-            treeString.append(print(node.checkRight()));
+        if (node != null)
+        {
+            space += 5;
+            treeString.append(printHelper(node.right, space));
+
+            treeString.append("\n");
+            treeString.append(" ".repeat(Math.max(0, space - 5)));
+            treeString.append(node.val);
+
+            treeString.append(printHelper(node.left, space));
         }
         return treeString.toString();
     }
 
-    public Node1 getRoot() {
+    public Node1 getRoot()
+    {
         return root;
     }
 }

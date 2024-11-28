@@ -49,10 +49,8 @@ public class Base {
         boolean aux = false;
         while (!aux) {
             switch (DialogHelper.optionD("Árbol binario balanceado \n¿Qué quieres hacer?", new String[]{"Insertar", "Imprimir", "Salir"})) {
-                case 0 -> {
-
-                }
-                case 1 -> arbolBinarioBalanceado.print(arbolBinarioBalanceado.getRoot());
+                case 0 -> arbolBinarioBalanceado.insertNode(rand.nextInt(1, 100));
+                case 1 -> DialogHelper.info(arbolBinarioBalanceado.print(arbolBinarioBalanceado.getRoot()));
                 case 2 -> aux = true;
             }
         }
@@ -63,11 +61,8 @@ public class Base {
         boolean aux = false;
         while (!aux) {
             switch (DialogHelper.optionD("Árbol tipo B \n¿Qué quieres hacer?", new String[]{"Insertar", "Imprimir", "Salir"})) {
-                case 0 -> {
-                }
-                case 1 -> {
-
-                }
+                case 0 -> arbolB.insertNode(rand.nextInt(1, 100));
+                case 1 -> DialogHelper.info(arbolB.print(arbolB.getRoot()));
                 case 2 -> aux = true;
             }
         }

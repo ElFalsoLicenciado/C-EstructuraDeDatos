@@ -1,14 +1,26 @@
 package TreeTypes;
 
-public class BTypeTree {
+public class BTypeTree
+{
     NodeB root;
     int order;
     boolean initialized;
 
-    public BTypeTree() {
+    public BTypeTree()
+    {
         root = null;
         order = 0;
         initialized = false;
+    }
+
+    public void insertNode(int val)
+    {
+
+    }
+
+    public String print(NodeB node)
+    {
+        return "";
     }
 
     public void setInitialized(int order) {
@@ -18,6 +30,11 @@ public class BTypeTree {
 
     public boolean isInitialized() {
         return initialized;
+    }
+
+    public NodeB getRoot()
+    {
+        return root;
     }
 }
 
