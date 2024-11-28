@@ -49,9 +49,7 @@ public class Base {
         boolean aux = false;
         while (!aux) {
             switch (DialogHelper.optionD("Árbol binario balanceado \n¿Qué quieres hacer?", new String[]{"Insertar", "Imprimir", "Salir"})) {
-                case 0 -> {
-
-                }
+                case 0 -> arbolBinarioBalanceado.insertNode(rand.nextInt(1, 100));
                 case 1 -> arbolBinarioBalanceado.print(arbolBinarioBalanceado.getRoot());
                 case 2 -> aux = true;
             }
